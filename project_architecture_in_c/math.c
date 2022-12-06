@@ -1,4 +1,5 @@
 #include "math.h"
+#include <stdlib.h>
 
 /**
  * La définition de la fonction déclarée dans le fichier en .h
@@ -81,7 +82,7 @@ void delete_array_of_point(point_t ** arr, unsigned int n) {
 */
 // 1ère version, volontairement erronée.
 int val_abs(int x) {
-    return -x;
+    return x;
 }
 // 2ème version, correcte
 /* int val_abs(int x) {
@@ -98,7 +99,7 @@ int val_abs(int x) {
 /**
  * Fonction pour retourner la puissance n d'un entier x donnée
 */
-int exp(int x, int n) {
+int expo(int x, int n) {
     int res = 1;
     for(int i=0; i < n; ++i) {
         res *= x; 
@@ -112,7 +113,7 @@ int exp(int x, int n) {
  * Il existe une méthode plus rapide (autrement dit dans un nombre d'étape moins grand)
  * pour faire une puissance.
 */
-int speed_exp(int x, int n) {
+int speed_expo(int x, int n) {
     if(n <= 0) { // on regarde si n = 0, ce qui voudrait dire qu'on l'entier à renvoyer est 1. car pour tout entier à la puissance 0, il est égale à 1.
         return 1;
     }
@@ -120,7 +121,7 @@ int speed_exp(int x, int n) {
         return x;
     }
 
-    int tmp = speed_exp(x, n/2); // comme on sait maintenant que n >= 2, on peut donc diviser le problème en 2 en faisant (x^(n/2))^2 
+    int tmp = speed_expo(x, n/2); // comme on sait maintenant que n >= 2, on peut donc diviser le problème en 2 en faisant (x^(n/2))^2 
     if(n % 2 == 0) { // si n est pair, alors on peut diviser n entièrement sans reste et donc continuer comme ça
         return tmp * tmp;
     }

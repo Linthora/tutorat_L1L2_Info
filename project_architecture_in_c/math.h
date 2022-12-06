@@ -37,7 +37,7 @@ void delete_array_of_point(point_t ** arr, unsigned int n);
 int val_abs(int x);
 
 // Déclaration de la fonction pour mettre au carré
-int exp(int x, int n);
+int expo(int x, int n);
 
 // Déclaration de la fonction pour mettre au carré un entier en moins d'opération.
-int speed_exp(int x, int n);
+int speed_expo(int x, int n);
