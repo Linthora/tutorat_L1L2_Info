@@ -1,5 +1,6 @@
 #include "math.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * La définition de la fonction déclarée dans le fichier en .h
@@ -51,7 +52,7 @@ point_t ** create_array_of_point(unsigned int n) {
         // deuxième option, réutiliser ce qu'on a fait précedement:
         res[i] = create_point_p(-i,i);
     }
-    // note: il est préférable de tout initalisé à 0 (ou une valeur par défaut décidée pour être sur de ce 
+    // note: il est préférable de tout initalisé à 0 (ou une valeur par défaut décidée pour être sur de ce
     // qu'on trouvera si jamais on se manipule directement sans avoir instancié ces valeur)
 
     return res;
@@ -64,7 +65,7 @@ point_t ** create_array_of_point(unsigned int n) {
 void delete_array_of_point(point_t ** arr, unsigned int n) {
     // on désaloue l'espace alloué précédement à chaque point.
     for(int i=0; i < n; ++i) {
-        free(arr[i]); 
+        free(arr[i]);
     }
 
     // puis on libère le pointeur vers le tableau de point.
@@ -76,13 +77,13 @@ void delete_array_of_point(point_t ** arr, unsigned int n) {
 
 /**
  * La fonction pour retourner la valeur absolue d'un entier.
- * 
+ *
  * La 1ere version est volontairement erroné, on peut la commenter et décommenter l'autre
  * et vis versa pour tester celle que l'on souhaite et illustrer le fonctionnement des fichier en .o
 */
 // 1ère version, volontairement erronée.
 int val_abs(int x) {
-    return x;
+    return x+30;
 }
 // 2ème version, correcte
 /* int val_abs(int x) {
@@ -129,5 +130,5 @@ int speed_expo(int x, int n) {
     // dans le cas ou n n'est pas pair, on peut donc le diviser par 2 mais en ayant un reste de 1, il s'agit donc de la même chose
     // que ci-dessus, mais en prenant ce reste en considération, ici, notre x
     return tmp*tmp* x;
-
 }
+
