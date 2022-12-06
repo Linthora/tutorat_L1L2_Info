@@ -56,4 +56,77 @@ point_t ** create_array_of_point(unsigned int n) {
     return res;
 }
 
+/**
+ * La logique pour détruire un tableau de valeur est à peu prêt la même.
+ * Il me faut simplement pas oublier d'aller libérer l'espace de chaque point avant de libérer le premier pointeur.
+*/
+void delete_array_of_point(point_t ** arr, unsigned int n) {
+    // on désaloue l'espace alloué précédement à chaque point.
+    for(int i=0; i < n; ++i) {
+        free(arr[i]); 
+    }
 
+    // puis on libère le pointeur vers le tableau de point.
+    free(arr);
+}
+
+
+//////////////////////////////// les fonctions mathématiques d'exemple
+
+/**
+ * La fonction pour retourner la valeur absolue d'un entier.
+ * 
+ * La 1ere version est volontairement erroné, on peut la commenter et décommenter l'autre
+ * et vis versa pour tester celle que l'on souhaite et illustrer le fonctionnement des fichier en .o
+*/
+// 1ère version, volontairement erronée.
+int val_abs(int x) {
+    return -x;
+}
+// 2ème version, correcte
+/* int val_abs(int x) {
+    // j'utilise ici l'opérateur ternaire: il fonctionne de la façon suivante:
+    // à la manière d'un if else, il evalue l'expersion avant le '?' (ici: x est-il négatif)
+    // si elle est vrai, alors il choisi l'expression juste après le '?' (ici: -x)
+    // sinon l'expression après le ':' (ici x)
+    // on pourrait le lire comme: if (x < 0) then -x else x
+    // ou (notation en python): (-x) if (x < 0) else (x)     // les parenthèse ne sont pas obligatoire.
+    return (x < 0) ? -x : x;
+} */
+
+
+/**
+ * Fonction pour retourner la puissance n d'un entier x donnée
+*/
+int exp(int x, int n) {
+    int res = 1;
+    for(int i=0; i < n; ++i) {
+        res *= x; 
+        // l'opérateur *= veut est équivalent à faire res = res * x
+        // il existe un opérateur similaire += ou /= pour faire respectivement res = res + x ou res = res / x
+    }
+    return res;
+}
+
+/**
+ * Il existe une méthode plus rapide (autrement dit dans un nombre d'étape moins grand)
+ * pour faire une puissance.
+*/
+int speed_exp(int x, int n) {
+    if(n <= 0) { // on regarde si n = 0, ce qui voudrait dire qu'on l'entier à renvoyer est 1. car pour tout entier à la puissance 0, il est égale à 1.
+        return 1;
+    }
+    if(n == 1) { // si n = 1, alors on retourn x, car tout entier à la puissance 1 est égale à lui même.
+        return x;
+    }
+
+    int tmp = speed_exp(x, n/2); // comme on sait maintenant que n >= 2, on peut donc diviser le problème en 2 en faisant (x^(n/2))^2 
+    if(n % 2 == 0) { // si n est pair, alors on peut diviser n entièrement sans reste et donc continuer comme ça
+        return tmp * tmp;
+    }
+
+    // dans le cas ou n n'est pas pair, on peut donc le diviser par 2 mais en ayant un reste de 1, il s'agit donc de la même chose
+    // que ci-dessus, mais en prenant ce reste en considération, ici, notre x
+    return tmp*tmp* x;
+
+}
