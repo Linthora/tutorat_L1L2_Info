@@ -1,6 +1,13 @@
+#ifndef __MATH_H__
+// cette ligne regarde si la constante __MATH_H__ est défini.
+// si ce n'est pas le cas, on reprend la lecture à la fin de ce if.
 
+#define __MATH_H__
+// ici on défini la constante __MATH_H__
+// Elle sert à faire comprendre au compilateur qu'on a déjà inclu ce fichier.
 
 /**
+ * Structure:
  * En terme de nom et usage: 
  * 1: point_s est le nom de la structure:
  *      - pour l'utiliser en tant que tel il faut faire:
@@ -41,3 +48,7 @@ int expo(int x, int n);
 
 // Déclaration de la fonction pour mettre au carré un entier en moins d'opération.
 int speed_expo(int x, int n);
+
+
+#endif
+// fin de la condition du if au début du fichier, autrement dit on ne lit rien d'autre.
