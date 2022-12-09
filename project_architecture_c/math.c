@@ -82,11 +82,11 @@ void delete_array_of_point(point_t ** arr, unsigned int n) {
  * et vis versa pour tester celle que l'on souhaite et illustrer le fonctionnement des fichier en .o
 */
 // 1ère version, volontairement erronée.
-int val_abs(int x) {
+/*int val_abs(int x) {
     return x+30;
-}
+    }*/
 // 2ème version, correcte
-/* int val_abs(int x) {
+int val_abs(int x) {
     // j'utilise ici l'opérateur ternaire: il fonctionne de la façon suivante:
     // à la manière d'un if else, il evalue l'expersion avant le '?' (ici: x est-il négatif)
     // si elle est vrai, alors il choisi l'expression juste après le '?' (ici: -x)
@@ -94,7 +94,7 @@ int val_abs(int x) {
     // on pourrait le lire comme: if (x < 0) then -x else x
     // ou (notation en python): (-x) if (x < 0) else (x)     // les parenthèse ne sont pas obligatoire.
     return (x < 0) ? -x : x;
-} */
+}
 
 
 /**
@@ -103,7 +103,7 @@ int val_abs(int x) {
 int expo(int x, int n) {
     int res = 1;
     for(int i=0; i < n; ++i) {
-        res *= x; 
+        res *= x;
         // l'opérateur *= veut est équivalent à faire res = res * x
         // il existe un opérateur similaire += ou /= pour faire respectivement res = res + x ou res = res / x
     }

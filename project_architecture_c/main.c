@@ -10,7 +10,7 @@ int * create_array(unsigned int n);
 //void afficher_array_pts(point_t[] arr, unsigned int n);
 void afficher_array_pts(point_t** arr, unsigned int n);
 
-int main(int argc, char *argv[]) {
+int main() {
     printf("Hello World!");
 
     point_t * pp = create_point_p(5,5);
@@ -53,8 +53,16 @@ int main(int argc, char *argv[]) {
     for(int i=0; i < n; ++i) {
       printf("Entier de arr[%d] = %d\n", i, arr_int[i]);
     }
+    printf("Entier de arr[%d] = %d\n", 15, arr_int[15]);
     free(arr_int);
 
+    printf("\n\n");
+
+    int * tab = malloc(n*sizeof(int));
+    tab[2] = 8;
+    for(int i=0; i < n; ++i) {
+      printf("Entier de arr[%d] = %d\n", i, tab[i]);
+    }
 
     return 0;
 }
