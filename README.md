@@ -1,7 +1,7 @@
 # tutorat_L1L2_Info
 Des petites démonstrations ou compléments de cours pour illustrer certains concepts à mes tutorets.
 
-## project_architecture_with_c:
+## project_architecture_c:
 
 Pour réaliser un petit cours sur les fichier .c, .o, .h et éxecutable en C.
 
